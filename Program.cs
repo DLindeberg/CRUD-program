@@ -131,32 +131,6 @@ namespace CRUD_program
                 // Försökte få alla parametrar att lagras i en lista för att använda indexet till parametrarna,
                 // problem att få idexet att skrivas ut korrekt, for-loopen hoppar över index tom. i en array(för utskriften till användaren).
                 // Måste använda LINQ?
-
-                /*string[] parameterOutput = {
-                    "Enter company name:",
-                    "Enter contact name:",
-                    "Enter contact title:",
-                    "Enter adress:",
-                    "Enter city:",
-                    "Enter region:",
-                    "Enter postal code:",
-                    "Enter country:",
-                    "Enter phone:",
-                    "Enter fax:" };
-                var parameterList = new List<string>();
-                for (int i = 0; i < 10; i++)
-                {
-                    Console.WriteLine(parameterOutput[i]);
-                    string input = Console.ReadLine();
-                    parameterList.Add(input);
-                    i++;
-                }
-                foreach (var item in parameterOutput)
-                {
-                    Console.WriteLine(parameterOutput);
-                    string input = Console.ReadLine();
-                    parameterList.Add(input);
-                }*/
             }
         }
         static void DeleteCustomer(int customerId) //KLAR
@@ -225,27 +199,7 @@ namespace CRUD_program
 
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.AddWithValue("@employeeID", employeeId);
-                command.Parameters.AddWithValue("@adress", adress);
-                
-                // PROBLEM
-                // Ingen aning om hur jag skall kunna koppla samman employeeID samt adressID i syfte att ändra townname i adresstable
-
-                //Console.WriteLine("Enter new town:");
-                //string town = Console.ReadLine();
-
-                //string queryString2 =
-                //    "UPDATE Towns SET Name = @town " +
-                //    "FROM Employees e " +
-                //    "JOIN Towns t " +
-                //    "ON e.EmployeeID = t.TownID " +
-                //    "WHERE e.EmployeeID = @employeeID";
-
-                //SqlCommand command2 = new SqlCommand(queryString2, connection);
-                //command.Parameters.AddWithValue("@employeeID", employeeId);
-                //command.Parameters.AddWithValue("@town", town);
-
-                //connection.Open();
-                //command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@adress", adress);               
             }
         }
         static void ShowCountrySales() //KLAR
